@@ -15,7 +15,8 @@ import Header from "./components/HeaderComponent";
 import Products from "./components/ProductsComponent";
 import Deposit from "./components/DepositComponent";
 import Footer from "./components/FooterComponent";
-import { addDepositAPI } from "./services/UserService";
+import { addDepositAPI, loginAPI } from "./services/UserService";
+import History from "./components/HistoryComponent";
 
 library.add(faMinus, faPlus, faSignOut, faEdit, faTrash);
 
@@ -30,14 +31,12 @@ function getRole() {
 function App() {
   const [auth, setAuth] = useState(getAuth());
   const role = getRole();
-  const [deposit, setDeposit] = useState();
+  const [deposit, setDeposit] = useState(0);
   const [depositError, setDepositError] = useState(deposit);
 
   useEffect(() => {
     if (role === "BUYER") {
-      addDepositAPI(auth, JSON.stringify({})).then((response) =>
-        setDeposit(response.data.new_total_deposit)
-      );
+      loginAPI(auth).then((response) => setDeposit(response.data.deposit));
     }
   }, [auth, role]);
   var deposit_value = (deposit / 100).toFixed(2);
@@ -45,7 +44,10 @@ function App() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login setAuth={setAuth} />} />
+          <Route
+            path="/"
+            element={<Login setAuth={setAuth} setDeposit={setDeposit} />}
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
@@ -57,8 +59,9 @@ function App() {
           <BrowserRouter>
             <Header setAuth={setAuth} />
             <Routes>
-              <Route path="/home" element={<Seller />} />
-              <Route exact path="/" element={<Navigate to="/home" />} />
+              <Route path="/products" element={<Seller />} />
+              <Route exact path="/" element={<Navigate to="/products" />} />
+              <Route path="/history" element={<History />} />
             </Routes>
           </BrowserRouter>
           <Footer />
@@ -83,6 +86,7 @@ function App() {
                 path="/deposit"
                 element={<Deposit deposit={deposit} setDeposit={setDeposit} />}
               />
+              <Route path="/history" element={<History />} />
               <Route exact path="/" element={<Navigate to="/products" />} />
             </Routes>
           </BrowserRouter>

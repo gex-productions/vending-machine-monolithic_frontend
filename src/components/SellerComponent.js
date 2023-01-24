@@ -93,7 +93,7 @@ function Seller() {
           </Row>
           <AddProduct
             isOpen={showAdd}
-            toggle={() => toggleAdd({ showAdd, setShowAdd })}
+            toggle={() => toggleAdd(showAdd, setShowAdd)}
             addProduct={(body) => addProduct(body, setData, setShowError)}
           />
         </div>

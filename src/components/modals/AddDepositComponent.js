@@ -32,7 +32,6 @@ class AddDeposit extends React.Component {
     e.preventDefault();
     this.props.addDeposit(this.state);
     this.props.toggle();
-    console.log(this.state);
     this.setState({
       fives: 0,
       tens: 0,

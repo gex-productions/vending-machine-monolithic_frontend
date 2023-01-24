@@ -12,7 +12,6 @@ function Products({ setDeposit }) {
   useEffect(() => {
     getAvailableProductsAPI(auth).then((response) => setData(response.data));
   }, [auth]);
-  console.log(data?.products);
   const products =
     data?.products.length === 0 ? (
       <Label>There are no available products currently.</Label>
@@ -35,7 +34,7 @@ function Products({ setDeposit }) {
     <Container className="main-jumbotron pt-3">
       <div>
         {error && (
-          <Alert className="alert-danger" toggle={setError(true)}>
+          <Alert className="alert-danger" toggle={() => setError(undefined)}>
             {error}
           </Alert>
         )}

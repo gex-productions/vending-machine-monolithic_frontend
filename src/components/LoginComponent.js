@@ -27,8 +27,9 @@ class Login extends React.Component {
       if (response.message !== undefined) {
         localStorage.setItem("role", response.message);
         localStorage.setItem("auth", auth);
-        console.log(localStorage.getItem("auth"));
         this.props.setAuth(auth);
+        if (response.message === "BUYER")
+          this.props.setDeposit(response.data.deposit);
       } else {
         var message;
         if (response === 401) {
@@ -36,7 +37,6 @@ class Login extends React.Component {
         } else {
           message = "Server is down. Please try again later.";
         }
-        console.log(message);
         this.setState({
           loginFail: true,
           loginError: message,

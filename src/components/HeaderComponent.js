@@ -26,26 +26,32 @@ function Header({ setAuth, deposit }) {
 
       <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
       <Collapse isOpen={navOpen} navbar>
-        {isBuyer && (
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink className="nav-link" to="/products">
-                <span className="fa fa-home fa-lg"></span> Products
-              </NavLink>
-            </NavItem>
+        <Nav className="me-auto" navbar>
+          <NavItem>
+            <NavLink className="nav-link" to="/products">
+              <span className="fa fa-home fa-lg"></span> Products
+            </NavLink>
+          </NavItem>
+          {isBuyer && (
             <NavItem>
               <NavLink className="nav-link" to="/deposit">
                 <span className="fa fa-info fa-lg"></span> Deposit
               </NavLink>
             </NavItem>
+          )}
+          <NavItem>
+            <NavLink className="nav-link" to="/history">
+              <span className="fa fa-info fa-lg"></span> History
+            </NavLink>
+          </NavItem>
+          {isBuyer && (
             <NavItem>
               <NavLink className="nav-link">
                 <strong>${deposit}</strong>
               </NavLink>
             </NavItem>
-          </Nav>
-        )}
-
+          )}
+        </Nav>
         <Button
           className="ms-auto"
           color="danger"

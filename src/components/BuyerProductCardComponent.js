@@ -20,10 +20,8 @@ function buyProduct(
     amount: amount,
   };
   buyAPI(auth, JSON.stringify(body)).then((response) => {
-    console.log(response);
     if (response.data !== undefined && response.data !== null) {
       setError(undefined);
-      console.log(response.data.new_total_deposit);
       setDeposit(response.data.new_total_deposit);
       getAvailableProductsAPI(auth).then((response) => setData(response.data));
       setAmount(0);
