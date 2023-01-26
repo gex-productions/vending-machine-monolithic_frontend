@@ -68,7 +68,7 @@ class Register extends React.Component {
             {this.state.message && (
               <Alert
                 className={`alert-${this.state.success ? "success" : "danger"}`}
-                toggle={this.setState({ message: undefined })}
+                toggle={() => this.setState({ message: undefined })}
               >
                 {this.state.message}
               </Alert>
