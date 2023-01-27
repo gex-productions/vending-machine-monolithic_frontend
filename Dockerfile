@@ -8,6 +8,8 @@ COPY . .
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN npm ci 
+# Install serve
+RUN npm install serve
 # Build the app
 RUN npm run build
 # ==== RUN =======
