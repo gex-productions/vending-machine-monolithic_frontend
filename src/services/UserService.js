@@ -1,11 +1,15 @@
 export async function loginAPI(auth) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/login", {
-      method: "POST",
-      headers: {
-        Authorization: auth,
-      },
-    });
+    console.log(process.env);
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/login",
+      {
+        method: "POST",
+        headers: {
+          Authorization: auth,
+        },
+      }
+    );
     if (response.status === 200) return response.json();
     return response.status;
   } catch (error) {
@@ -15,13 +19,16 @@ export async function loginAPI(auth) {
 
 export async function registerAPI(body) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/register", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body,
-    });
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    );
     return response.status;
   } catch (error) {
     return 503;
@@ -30,14 +37,17 @@ export async function registerAPI(body) {
 
 export async function buyAPI(auth, body) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/buy", {
-      method: "POST",
-      headers: {
-        Authorization: auth,
-        "Content-type": "application/json",
-      },
-      body,
-    });
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/buy",
+      {
+        method: "POST",
+        headers: {
+          Authorization: auth,
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    );
     return response.json();
   } catch (error) {
     return 503;
@@ -46,14 +56,17 @@ export async function buyAPI(auth, body) {
 
 export async function addDepositAPI(auth, body) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/deposit", {
-      method: "POST",
-      headers: {
-        Authorization: auth,
-        "Content-type": "application/json",
-      },
-      body,
-    });
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/deposit",
+      {
+        method: "POST",
+        headers: {
+          Authorization: auth,
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    );
     if (response.status === 200) return response.json();
     return response.status;
   } catch (error) {
@@ -63,12 +76,15 @@ export async function addDepositAPI(auth, body) {
 
 export async function resetDepositAPI(auth) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/reset", {
-      method: "POST",
-      headers: {
-        Authorization: auth,
-      },
-    });
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/reset",
+      {
+        method: "POST",
+        headers: {
+          Authorization: auth,
+        },
+      }
+    );
     if (response.status === 200) return response.json();
     return response.status;
   } catch (error) {

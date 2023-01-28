@@ -1,7 +1,7 @@
 export async function getAvailableProductsAPI(auth) {
   try {
     const response = await fetch(
-      "http://localhost:8080/apis/v1/available-products",
+      "http://" + window.location.hostname + ":8080/apis/v1/available-products",
       {
         method: "GET",
         headers: {
@@ -18,7 +18,7 @@ export async function getAvailableProductsAPI(auth) {
 export async function getOwnedProductsAPI(auth) {
   try {
     const response = await fetch(
-      "http://localhost:8080/apis/v1/owned-products",
+      "http://" + window.location.hostname + ":8080/apis/v1/owned-products",
       {
         method: "GET",
         headers: {
@@ -34,14 +34,17 @@ export async function getOwnedProductsAPI(auth) {
 
 export async function addProductAPI(auth, body) {
   try {
-    const response = await fetch("http://localhost:8080/apis/v1/add-product/", {
-      method: "PUT",
-      headers: {
-        Authorization: auth,
-        "Content-type": "application/json",
-      },
-      body,
-    });
+    const response = await fetch(
+      "http://" + window.location.hostname + ":8080/apis/v1/add-product/",
+      {
+        method: "PUT",
+        headers: {
+          Authorization: auth,
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    );
     return response.status;
   } catch (error) {
     return 503;
@@ -51,7 +54,10 @@ export async function addProductAPI(auth, body) {
 export async function updateProductAPI(auth, id, body) {
   try {
     const response = await fetch(
-      "http://localhost:8080/apis/v1/update-product/" + id,
+      "http://" +
+        window.location.hostname +
+        ":8080/apis/v1/update-product/" +
+        id,
       {
         method: "POST",
         headers: {
@@ -70,7 +76,10 @@ export async function updateProductAPI(auth, id, body) {
 export async function deleteProductAPI(auth, id) {
   try {
     const response = await fetch(
-      "http://localhost:8080/apis/v1/delete-product/" + id,
+      "http://" +
+        window.location.hostname +
+        ":8080/apis/v1/delete-product/" +
+        id,
       {
         method: "DELETE",
         headers: {
