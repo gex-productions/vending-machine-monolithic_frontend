@@ -70,8 +70,7 @@ function Seller() {
           <h2>
             Your Products{" "}
             <Button onClick={() => setShowAdd(true)} color="success">
-              <FontAwesomeIcon icon="plus" size="lg" />
-              Add Product
+              <FontAwesomeIcon icon="plus" size="md" /> Add Product
             </Button>
           </h2>
 
