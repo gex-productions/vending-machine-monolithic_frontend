@@ -1,6 +1,5 @@
 export async function loginAPI(auth) {
   try {
-    console.log(process.env);
     const response = await fetch(
       "http://" + window.location.hostname + ":8080/apis/v1/login",
       {

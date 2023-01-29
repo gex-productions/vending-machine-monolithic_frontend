@@ -18,6 +18,7 @@ class AddProduct extends React.Component {
       name: undefined,
       amount_available: undefined,
       cost: undefined,
+      image_url: undefined,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -67,6 +68,15 @@ class AddProduct extends React.Component {
                 placeholder="Product Cost"
                 onChange={(e) => this.setState({ cost: e.target.value })}
                 required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="image_url">Product Image URL</Label>
+              <Input
+                id="image_url"
+                name="image_url"
+                placeholder="Product Image Full URL"
+                onChange={(e) => this.setState({ image_url: e.target.value })}
               />
             </FormGroup>
           </ModalBody>

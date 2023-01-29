@@ -17,6 +17,7 @@ class EditProduct extends React.Component {
     this.state = {
       amount_available: props.product.amount_available,
       cost: props.product.cost,
+      image_url: props.product.image_url,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -60,6 +61,16 @@ class EditProduct extends React.Component {
                   this.setState({ cost: parseInt(e.target.value) })
                 }
                 required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="image_url">Product Image URL</Label>
+              <Input
+                id="image_url"
+                name="image_url"
+                value={this.state.image_url}
+                placeholder="Product Image Full URL"
+                onChange={(e) => this.setState({ image_url: e.target.value })}
               />
             </FormGroup>
           </ModalBody>

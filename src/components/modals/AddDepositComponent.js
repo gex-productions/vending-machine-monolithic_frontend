@@ -165,7 +165,7 @@ class AddDeposit extends React.Component {
                     <Button
                       color="success"
                       onClick={() =>
-                        this.setState({ tens: this.state.fifties - 1 })
+                        this.setState({ fifties: this.state.fifties - 1 })
                       }
                       disabled={this.state.fifties <= 0}
                       type="button"

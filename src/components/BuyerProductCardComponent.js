@@ -1,6 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Button, Card, CardBody, CardTitle, Col, Input, Row } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardImg,
+  CardTitle,
+  Col,
+  Input,
+  Row,
+} from "reactstrap";
 import { getAvailableProductsAPI } from "../services/ProductService";
 import { buyAPI } from "../services/UserService";
 import BuyProduct from "./modals/BuyProductComponent";
@@ -47,9 +56,12 @@ export default function BuyerProductCard({
   const cost_value = (product.cost / 100).toFixed(2);
   return (
     <Card>
-      <CardTitle heading="true">{product.name}</CardTitle>
+      <CardTitle>
+        <h2 className="text-center">{product.name}</h2>
+      </CardTitle>
+      <CardImg width="50%" src={product.image_url} alt={product.name} />
       <CardBody>
-        <h2>Cost: ${cost_value}</h2>
+        <h4>Cost: ${cost_value}</h4>
         <Row>
           <Col>
             <Button

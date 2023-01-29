@@ -65,32 +65,18 @@ function Seller() {
       );
     });
     return (
-      <Container className="main-jumbotron">
+      <Container className="main-jumbotron pt-3">
         <div>
-          <h2>Your Products</h2>
+          <h2>
+            Your Products{" "}
+            <Button onClick={() => setShowAdd(true)} color="success">
+              <FontAwesomeIcon icon="plus" size="lg" />
+              Add Product
+            </Button>
+          </h2>
+
           <hr />
-          <Row>
-            {products}
-            <Col className="mb-3" sm="12" md="6" lg="4">
-              <Card>
-                <CardTitle>Add Product</CardTitle>
-                <CardBody>
-                  <div>
-                    <Row className="align-items-center justify-content-center">
-                      <Col xs="auto">
-                        <Button
-                          onClick={() => setShowAdd(true)}
-                          color="success"
-                        >
-                          <FontAwesomeIcon icon="plus" size="4x" />
-                        </Button>
-                      </Col>
-                    </Row>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
+          <Row>{products}</Row>
           <AddProduct
             isOpen={showAdd}
             toggle={() => toggleAdd(showAdd, setShowAdd)}

@@ -1,5 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Card, CardBody, CardTitle, Col, Row } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardImg,
+  CardTitle,
+  Col,
+  Row,
+} from "reactstrap";
 import {
   deleteProductAPI,
   getOwnedProductsAPI,
@@ -44,20 +52,23 @@ export default function SellerProductCard({
   const cost_value = (product.cost / 100).toFixed(2);
   return (
     <Card>
-      <CardTitle heading="true">{product.name}</CardTitle>
+      <CardTitle>
+        <h2 className="text-center">{product.name}</h2>
+      </CardTitle>
+      <CardImg height={300} src={product.image_url} alt={product.name} />
       <CardBody>
         <div>
-          <h3>Cost: ${cost_value}</h3>
-          <h3>Available amount: {product.amount_available}</h3>
+          <h4>Cost: ${cost_value}</h4>
+          <h4>Available amount: {product.amount_available}</h4>
           <Row>
-            <Col xs={2}>
+            <Col xs={6}>
               <Button onClick={() => setShowEdit(product.id)} color="primary">
-                <FontAwesomeIcon icon="edit" />
+                <FontAwesomeIcon icon="edit" /> Update
               </Button>
             </Col>
-            <Col xs={2}>
+            <Col xs={6}>
               <Button onClick={() => setShowDelete(product.id)} color="danger">
-                <FontAwesomeIcon icon="trash" />
+                <FontAwesomeIcon icon="trash" /> Remove
               </Button>
             </Col>
           </Row>
