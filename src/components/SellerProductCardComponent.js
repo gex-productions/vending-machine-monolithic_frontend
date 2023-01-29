@@ -53,20 +53,20 @@ export default function SellerProductCard({
   return (
     <Card>
       <CardTitle>
-        <h2 className="text-center">{product.name}</h2>
+        <h4 className="text-center">{product.name}</h4>
       </CardTitle>
       <CardImg height={300} src={product.image_url} alt={product.name} />
       <CardBody>
         <div>
-          <h4>Cost: ${cost_value}</h4>
-          <h4>Available amount: {product.amount_available}</h4>
+          <h6>Cost: ${cost_value}</h6>
+          <h6>Available amount: {product.amount_available}</h6>
           <Row>
-            <Col xs={6}>
+            <Col xs={5}>
               <Button onClick={() => setShowEdit(product.id)} color="primary">
-                <FontAwesomeIcon icon="edit" /> Update
+                <FontAwesomeIcon icon="edit" /> Edit
               </Button>
             </Col>
-            <Col xs={6}>
+            <Col xs={7}>
               <Button onClick={() => setShowDelete(product.id)} color="danger">
                 <FontAwesomeIcon icon="trash" /> Remove
               </Button>

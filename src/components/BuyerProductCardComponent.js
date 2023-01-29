@@ -7,7 +7,7 @@ import {
   CardImg,
   CardTitle,
   Col,
-  Input,
+  Label,
   Row,
 } from "reactstrap";
 import { getAvailableProductsAPI } from "../services/ProductService";
@@ -57,14 +57,15 @@ export default function BuyerProductCard({
   return (
     <Card>
       <CardTitle>
-        <h2 className="text-center">{product.name}</h2>
+        <h4 className="text-center">{product.name}</h4>
       </CardTitle>
-      <CardImg width="50%" src={product.image_url} alt={product.name} />
+      <CardImg height={300} src={product.image_url} alt={product.name} />
       <CardBody>
-        <h4>Cost: ${cost_value}</h4>
+        <h5>Cost: ${cost_value}</h5>
         <Row>
-          <Col>
+          <Col className="d-flex justify-content-center" xs={6}>
             <Button
+              block
               disabled={amount === 0}
               onClick={() => setShowBuy(true)}
               color="primary"
@@ -72,8 +73,8 @@ export default function BuyerProductCard({
               Buy
             </Button>
           </Col>
-          <Col></Col>
-          <Col>
+          {/* <Col lg={0} xl={1}></Col> */}
+          <Col className="d-flex justify-content-center" xs={2}>
             <Button
               onClick={() => setAmount(amount - 1)}
               disabled={amount === 0}
@@ -82,10 +83,12 @@ export default function BuyerProductCard({
               <FontAwesomeIcon icon="minus" />
             </Button>
           </Col>
-          <Col>
-            <Input value={amount} readOnly />
+          <Col xs={1} className="d-flex justify-content-center">
+            <Label size="lg">
+              <strong>{amount}</strong>
+            </Label>
           </Col>
-          <Col>
+          <Col className="d-flex justify-content-center" xs={2}>
             <Button
               onClick={() => setAmount(amount + 1)}
               disabled={amount >= product.amount_available}

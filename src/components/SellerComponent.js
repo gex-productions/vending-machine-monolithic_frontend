@@ -51,7 +51,7 @@ function Seller() {
   } else {
     const products = data.products.map((product) => {
       return (
-        <Col className="mb-3" key={product.id} sm="12" md="6" lg="4">
+        <Col className="mb-3" key={product.id} xs="12" sm="6" md="4" lg="3">
           <SellerProductCard
             product={product}
             showDelete={showDelete}

@@ -18,7 +18,7 @@ function Products({ setDeposit }) {
     ) : (
       data?.products.map((product) => {
         return (
-          <Col className="mb-3" key={product.id} sm="12" md="6" lg="4">
+          <Col className="mb-3" key={product.id} xs="6" sm="6" md="4" lg="3">
             <BuyerProductCard
               product={product}
               setData={setData}
