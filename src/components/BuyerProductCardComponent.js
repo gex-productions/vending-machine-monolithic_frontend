@@ -54,12 +54,15 @@ export default function BuyerProductCard({
   const [showBuy, setShowBuy] = useState(false);
   const toggle = () => setShowBuy(!showBuy);
   const cost_value = (product.cost / 100).toFixed(2);
+  const image_url = product.image_url
+    ? product.image_url
+    : "assets/images/image-not-available.png";
   return (
     <Card>
       <CardTitle>
         <h4 className="text-center">{product.name}</h4>
       </CardTitle>
-      <CardImg height={300} src={product.image_url} alt={product.name} />
+      <CardImg height={300} src={image_url} alt={product.name} />
       <CardBody>
         <h5>Cost: ${cost_value}</h5>
         <Row>
