@@ -22,7 +22,9 @@ function Header({ setAuth, deposit }) {
   const isBuyer = localStorage.getItem("role") === "BUYER";
   return (
     <Navbar color={"dark"} dark expand="md">
-      <NavbarBrand href="/">Vending Machine</NavbarBrand>
+      <NavbarBrand href="/products">
+        <img src="logo192.png" height="40" width="40" /> Vending Machine
+      </NavbarBrand>
 
       <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
       <Collapse isOpen={navOpen} navbar>
